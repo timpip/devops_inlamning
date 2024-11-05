@@ -1,4 +1,4 @@
-Group DevOps project description - Group Kangaroo
+## Group DevOps project description - Group Kangaroo
 
 Ideas:
 Idea 1:
