@@ -1,7 +1,5 @@
 import requests
 from datetime import datetime
-import datetime
-import openpyxl
 
 def data_SMHI():
     now = datetime.datetime.now()
@@ -22,7 +20,6 @@ def data_SMHI():
     validTimeINT = int(validTime[11:13])
     time = validTimeINT +1
 
-    listaSamladData = []
     samlad_data_dict = {}
     #Fyller dict med all våran data till en rad
     for items in SMHIresponse["timeSeries"][0]["parameters"][:25]:
@@ -34,28 +31,25 @@ def data_SMHI():
         
 
         for items in SMHIresponse["timeSeries"][0]["parameters"][:25]:
+            
             if items["name"] == "t":
+                
                 temp = items["values"][0]
                 samlad_data_dict["temperature"] = temp
             
             if items["name"] == "pcat":
+                
                 prec = items["values"][0]
+
                 if prec <= 0:
                     rain = False
+
                 elif prec > 0:
                     rain = True
+
         samlad_data_dict["rainOrSnow"] = rain
         samlad_data_dict["provider"] ="SMHI"
 
     print(samlad_data_dict)
-
-
-
-
-
-
-
-
-
 
 data_SMHI()
