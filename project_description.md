@@ -1,4 +1,5 @@
 ## Group DevOps project description - Group Kangaroo
+Members: Tim, Samuel, Lovisa
 
 Ideas:
 Idea 1:
@@ -14,3 +15,8 @@ Description:
 SMHI's API will be used to collect weather data from a specific location. 
 When the app is run several tests in GitHub Actions will run and test the data and code.
 This will later be sent to a docker image and sent to Azure.
+
+Tests: 
+Validation that data comes from correct coordinates.
+Validation that timeframe is correct.
+Validation that syntax is working in code.
