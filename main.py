@@ -1,10 +1,14 @@
 import requests
 from datetime import datetime
+import datetime
+import streamlit as st
+import pandas as pd
+
 
 def data_SMHI():
     now = datetime.datetime.now()
     formatted_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
-    URL = f"https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/18.0215/lat/59.3099/data.json"
+    URL = f"https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/{lon}/lat/{lat}/data.json"
     response = requests.get(URL)
     #kolla om ok
     if response.status_code == 200:
@@ -49,7 +53,32 @@ def data_SMHI():
 
         samlad_data_dict["rainOrSnow"] = rain
         samlad_data_dict["provider"] ="SMHI"
+        df = pd.DataFrame([samlad_data_dict])
+    
+    return df
 
-    print(samlad_data_dict)
 
-data_SMHI()
+def page():
+    st.title("Weather checker :sun_with_face::rain_cloud::lightning:")
+    global lat, lon
+    option = st.selectbox(
+    "Choose where to show weather?",
+    ("Kiruna", "Stockholm", "Ystad"),    
+    )
+
+    st.write("You selected:", option)
+
+    if option == "Kiruna":
+        lon = 20.225
+        lat = 67.855
+    if option == "Stockholm":
+        lon = 18.0215
+        lat = 59.3099
+    if option == "Ystad":
+        lon = 13.820
+        lat = 55.429
+    if st.button('Show weather! :cloud:'):
+        st.balloons()
+        st.table(data_SMHI())
+
+page()
