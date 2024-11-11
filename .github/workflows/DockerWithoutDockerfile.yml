@@ -48,3 +48,7 @@ jobs:
       # Step 5: Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKER_SAMUEL_USERNAME }}/testing:latest
+      
+      # Step 6: Remove Dockerfile
+      - name: Remove Dockerfile
+        run: rm Dockerfile
