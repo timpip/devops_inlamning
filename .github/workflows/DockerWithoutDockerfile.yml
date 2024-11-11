@@ -37,6 +37,7 @@ jobs:
           echo "COPY . /app" >> Dockerfile
           echo "WORKDIR /app" >> Dockerfile
           echo "RUN pip install -r requirements.txt" >> Dockerfile
+          echo "EXPOSE 8501"
           echo "CMD ["streamlit", "run", "main.py"]" >> Dockerfile
 
       # Step 3: Build the Docker image
