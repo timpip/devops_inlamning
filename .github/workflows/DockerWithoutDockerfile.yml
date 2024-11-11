@@ -6,6 +6,8 @@ name: Dockerfile build and publish
 # separate terms of service, privacy policy, and support
 # documentation.
 
+#Change "repohere" to the correct Dockerhub repository
+#Change all "DOCKER_SAMUEL_USERNAME" and "DOCKER_SAMUEL_PASSWORD" to the correct person
 
 #OBS NOT CURRENTLY WORKING SINCE REPO HAS DOCKERFILE
 on:
@@ -43,11 +45,11 @@ jobs:
 
       # Step 4: Tag the Docker image
       - name: Tag Docker image
-        run: docker tag testing ${{ secrets.DOCKER_SAMUEL_USERNAME }}/testing:latest
+        run: docker tag testing ${{ secrets.DOCKER_SAMUEL_USERNAME }}/repohere:latest
 
       # Step 5: Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_SAMUEL_USERNAME }}/testing:latest
+        run: docker push ${{ secrets.DOCKER_SAMUEL_USERNAME }}/repohere:latest
       
       # Step 6: Remove Dockerfile
       - name: Remove Dockerfile
