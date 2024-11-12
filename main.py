@@ -54,7 +54,7 @@ def data_SMHI():
         samlad_data_dict["provider"] ="SMHI"
         df = pd.DataFrame([samlad_data_dict])
     
-    return df, code
+    return df, code, samlad_data_dict
 
 
 def page():
@@ -82,3 +82,4 @@ def page():
 
 if __name__ == "__main__":
     page()
+
