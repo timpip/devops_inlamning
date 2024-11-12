@@ -63,7 +63,7 @@ def page():
     global lat, lon
     option = st.selectbox(
     "Choose where to show weather?",
-    ("Kiruna", "Stockholm", "Ystad"),    
+    ("Stockholm", "Kiruna", "Ystad"),    
     )
 
     st.write("You selected:", option)

@@ -4,6 +4,9 @@
 # You can adjust the behavior by modifying this file.
 # For more information, see:
 # https://github.com/github/super-linter
+user: ${{ secrets.DOCKER_TIM_USERNAME}}
+password: ${{ secrets.DOCKER_TIM_PASSWORD}}
+
 name: Lint Code Base
 
 on:
