@@ -5,12 +5,12 @@ Controls when the action will run. Workflow runs when manually triggered using t
 or API.
 on:
   workflow_dispatch:
-     inputs: 
+    inputs: 
       show_message:
-       description: "Log errors if tests fails"
-       required: true
-       default: 'false'
-       type: boolean
+        description: "Log errors if tests fails"
+        required: true
+        default: 'false'
+        type: boolean
 
 A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
