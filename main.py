@@ -10,8 +10,9 @@ def data_SMHI():
     formatted_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
     URL = f"https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/{lon}/lat/{lat}/data.json"
     response = requests.get(URL)
-    #kolla om ok
-    if response.status_code == 200:
+
+    code = response.status_code
+    if code == 200:
         print("Kontakt med API")
     else: print("Något gick snett med hämtningen av prognos, prova igen om en stund.")
     SMHIresponse = response.json()
