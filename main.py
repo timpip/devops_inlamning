@@ -58,6 +58,7 @@ def data_SMHI():
 
 
 def page():
+    df, code, samlad_data_dict = data_SMHI()
     st.title("Weather checker :sun_with_face::rain_cloud::lightning:")
     global lat, lon
     option = st.selectbox(
@@ -78,7 +79,7 @@ def page():
         lat = 55.429
     if st.button('Show weather! :cloud:'):
         st.balloons()
-        st.table(data_SMHI())
+        st.table(df)
 
 if __name__ == "__main__":
     page()
