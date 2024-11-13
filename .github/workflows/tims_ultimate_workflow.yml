@@ -72,7 +72,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          user: ${{ secrets.DOCKER_TIM_USERNAME}}
+          username: ${{ secrets.DOCKER_TIM_USERNAME}}
           password: ${{ secrets.DOCKER_TIM_PASSWORD}}
 
       # Step 3: Build the Docker image
