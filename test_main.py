@@ -12,4 +12,5 @@ def test_API_response():
 def test_unit():
     samlad_data_dict = data_SMHI()
     
-    assert samlad_data_dict['provider'] == "SMHI"
+    assert samlad_data_dict['provider'].values[0] == "SMHI"
+
