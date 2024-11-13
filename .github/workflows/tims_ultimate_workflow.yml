@@ -72,7 +72,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          user: ${{ secrets.DOCKER_TIM_USERNAME}}
+          username: ${{ secrets.DOCKER_TIM_USERNAME}}
           password: ${{ secrets.DOCKER_TIM_PASSWORD}}
 
       # Step 3: Build the Docker image
@@ -81,13 +81,13 @@ jobs:
 
       # Step 4: Tag the Docker image
       - name: Tag Docker image
-        run: docker tag projectbounce ${{ secrets.DOCKER_TIM_USERNAME }}/devops_project:latest
+        run: docker tag projectbounce ${{ secrets.DOCKER_TIM_USERNAME }}/projectbounce:latest
 
       - name: Tag Docker image version
-        run: docker tag projectbounce ${{ secrets.DOCKER_TIM_USERNAME }}/devops_project:1.1
+        run: docker tag projectbounce ${{ secrets.DOCKER_TIM_USERNAME }}/projectbounce:1.1
 
       # Step 5: Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_TIM_USERNAME }}/devops_project:latest
+        run: docker push ${{ secrets.DOCKER_TIM_USERNAME }}/projectbounce:latest
       
 
