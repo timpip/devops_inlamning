@@ -10,7 +10,6 @@ on:
         default: "false"
         type: boolean
 
-  workflow_dispatch:
     inputs: 
       show_message:
         description: "Write build version"
@@ -55,7 +54,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Failing step if show_message is 'false'
+      - name: Failing step if show_message is 'true'
         run: |
           echo "Error has occurd" > error.log
           exit 1
