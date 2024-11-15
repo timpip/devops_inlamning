@@ -13,7 +13,7 @@ def data_SMHI():
     formatted_datetime = now.strftime('%Y-%m-%d %H:%M:%S')
     URL = f"https://opendata-download-metfcst.smhi.se/api/category/pmp3g/version/2/geotype/point/lon/{lon}/lat/{lat}/data.json"
     response = requests.get(URL)
-    #kolla om ok
+    
     code = response.status_code
     SMHIresponse = response.json()
 
@@ -26,7 +26,7 @@ def data_SMHI():
     time = validTimeINT +1
 
     samlad_data_dict = {}
-    #Fyller dict med all våran data till en rad
+    
     for items in SMHIresponse["timeSeries"][0]["parameters"][:25]:
         samlad_data_dict["created"] = formatted_datetime
         samlad_data_dict["longitude"] = SMHIresponse["geometry"]["coordinates"][0][0]
