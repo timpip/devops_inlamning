@@ -4,22 +4,23 @@ name: Dockerfile build and publish
 on:
   workflow_dispatch:
     inputs: 
-      show_message:
-        description: "Log errors if tests fails"
+      log_errors:
+        description: "Log errors if tests fail"
         required: true
         default: "false"
         type: boolean
 
-  workflow_dispatch:
-    inputs: 
-      show_message:
-        description: "Write build version"
+      write_build_version:
+        description: "Write build version (true/false)"
         required: true
         default: "false"
+        type: boolean
+
       build_version:
         description: "Enter the build version (e.g., v1.0.0)"
         required: true
         default: "v1.0.0"
+
         
 jobs:
 
